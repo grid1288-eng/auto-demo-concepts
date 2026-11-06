@@ -1,0 +1,104 @@
+/* Дополнительные темы. Подключаются только к сайтам с этими темами, эталонные темы graphite и bone не меняются. */
+
+[data-theme='steel'] {
+  --bg: #0e141b;
+  --surface: #16202b;
+  --surface-2: #1d2a37;
+  --ink: #eef2f6;
+  --muted: #9eabb8;
+  --line: #27333f;
+  --motif: #223040;
+  --band-bg: #16202b;
+  --band-ink: #eef2f6;
+  --band-muted: #9eabb8;
+  --band-line: #2c3a48;
+  --band-bar: var(--accent);
+  --band-track: #27333f;
+  --band-card: #0e141b;
+  --demo-bg: #05080b;
+  --demo-ink: #eef2f6;
+}
+
+[data-theme='moss'] {
+  --bg: #10130f;
+  --surface: #181d16;
+  --surface-2: #20271d;
+  --ink: #eef0e8;
+  --muted: #a5ab9c;
+  --line: #2b3227;
+  --motif: #2a3226;
+  --band-bg: #181d16;
+  --band-ink: #eef0e8;
+  --band-muted: #a5ab9c;
+  --band-line: #333b2e;
+  --band-bar: var(--accent);
+  --band-track: #2b3227;
+  --band-card: #10130f;
+  --demo-bg: #050604;
+  --demo-ink: #eef0e8;
+}
+
+[data-theme='ice'] {
+  --bg: #edf1f4;
+  --surface: #e1e7ec;
+  --surface-2: #d4dce3;
+  --ink: #0f1720;
+  --muted: #4a5765;
+  --line: #c4ced8;
+  --motif: #d0d9e1;
+  --band-bg: #0f1720;
+  --band-ink: #edf1f4;
+  --band-muted: #aab6c2;
+  --band-line: #26323e;
+  --band-bar: var(--accent);
+  --band-track: #222d38;
+  --band-card: #17222d;
+  --demo-bg: #0f1720;
+  --demo-ink: #edf1f4;
+}
+
+[data-theme='paper'] {
+  --bg: #f5f2ea;
+  --surface: #ebe6da;
+  --surface-2: #e0d9ca;
+  --ink: #1c1a16;
+  --muted: #57534a;
+  --line: #d2cbbb;
+  --motif: #ddd6c7;
+  --band-bg: #1c1a16;
+  --band-ink: #f5f2ea;
+  --band-muted: #bab4a6;
+  --band-line: #36332c;
+  --band-bar: var(--accent);
+  --band-track: #2e2b25;
+  --band-card: #26231e;
+  --demo-bg: #1c1a16;
+  --demo-ink: #f5f2ea;
+}
+
+/* Светлые темы: глубина и наклонные переходы, как у контрольного сайта. */
+:is([data-theme='ice'], [data-theme='paper']) .band {
+  position: relative; isolation: isolate;
+  clip-path: polygon(0 28px, 100% 0, 100% calc(100% - 28px), 0 100%);
+  padding-block: 88px;
+  background: radial-gradient(120% 80% at 100% 0%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 55%), var(--band-bg);
+}
+:is([data-theme='ice'], [data-theme='paper']) .band .score__value { color: color-mix(in srgb, var(--accent) 80%, #fff); }
+:is([data-theme='ice'], [data-theme='paper']) .review { border-top: 3px solid var(--accent); box-shadow: 0 18px 40px -24px rgba(0, 0, 0, .8); }
+:is([data-theme='ice'], [data-theme='paper']) #contacts { background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 70%); border-top: 0; }
+:is([data-theme='ice'], [data-theme='paper']) .contacts__grid > div:first-child {
+  padding: 26px 22px; border-radius: var(--radius);
+  background: var(--bg); border: 1px solid var(--line);
+  box-shadow: 0 24px 50px -32px rgba(22, 21, 15, .45);
+}
+:is([data-theme='ice'], [data-theme='paper']) .contact-list { border-top-color: var(--accent-text); }
+:is([data-theme='ice'], [data-theme='paper']) .map { box-shadow: 12px 12px 0 color-mix(in srgb, var(--accent) 28%, transparent); }
+
+/* Тёмные новые темы: акцентная рамка у фото и полоса-подложка у блока «Про майстерню». */
+:is([data-theme='steel'], [data-theme='moss']) .hero--split .hero__media { box-shadow: 12px 12px 0 color-mix(in srgb, var(--accent) 30%, transparent); }
+:is([data-theme='steel'], [data-theme='moss']) .review { border-top: 2px solid color-mix(in srgb, var(--accent) 70%, transparent); }
+
+@media (min-width: 768px) {
+  :is([data-theme='ice'], [data-theme='paper']) .band { clip-path: polygon(0 48px, 100% 0, 100% calc(100% - 48px), 0 100%); padding-block: 120px; }
+  :is([data-theme='ice'], [data-theme='paper']) .contacts__grid > div:first-child { padding: 36px 34px; }
+}
